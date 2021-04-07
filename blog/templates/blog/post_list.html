@@ -8,14 +8,14 @@
     <header>
      <h1><a href="/">The Official Blog/Portfolio</a></h1>
     </header>
-    
-    <article>
-     <time>published: 4/5/2021, 12:10</time>
-     <h2>I Can't Believe He Finally Did It</h2>	
-     <p>Welcome! I'm officially on the web and hoping to display my prowess.<br>
-        Each update, I'll post an update on something new I've done or created. </p>
-    </article>
 
+    {% for post in posts %}
+    <article>
+     <time>published: {{ post.published_date }}</time>
+     <h2>{{ post.title }}</h2>
+     <p>{{ post.text|linebreaksbr }}</p>
+    </article>
+    {% endfor %}
 
 
   </body>
