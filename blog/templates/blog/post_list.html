@@ -1,22 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-   <title>Andrew is Officially LFW</title>
-  </head>
+{% extends 'blog/base.html' %}
 
-  <body>
-    <header>
-     <h1><a href="/">The Official Blog/Portfolio</a></h1>
-    </header>
-
+{% block content %}
     {% for post in posts %}
-    <article>
-     <time>published: {{ post.published_date }}</time>
-     <h2>{{ post.title }}</h2>
-     <p>{{ post.text|linebreaksbr }}</p>
-    </article>
+        <article class="post">
+            <time class="date">published: {{ post.published_date }}</time>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </article>
     {% endfor %}
+{% endblock %}
 
 
-  </body>
-</html>
+
+
+
+
+
+
+
+
